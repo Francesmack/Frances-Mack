@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frances Mack | Scientific & Environmental Journalist</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2A9D8F;
+            --secondary-color: #264653;
+            --accent-color: #E9C46A;
+            --light-color: #F8F9FA;
+            --dark-color: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        .navbar {
+            background-color: var(--secondary-color);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(38, 70, 83, 0.8), rgba(38, 70, 83, 0.9)), url("/api/placeholder/1200/600") center/cover no-repeat;
+            color: white;
+            padding: 7rem 0;
+        }
+        
+        .hero h1 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #238176;
+            border-color: #238176;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .card {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 30px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-category {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .card-title {
+            font-weight: 600;
+        }
+        
+        .bio-img {
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Portfolio Filter */
+        .portfolio-filter {
+            margin-bottom: 30px;
+        }
+        
+        .portfolio-filter .btn {
+            background-color: transparent;
+            border: 1px solid #dee2e6;
+            color: var(--dark-color);
+            margin: 0 5px 10px;
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .portfolio-filter .btn.active, 
+        .portfolio-filter .btn:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Video portfolio */
+        .video-thumbnail {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .video-thumbnail::after {
+            content: '\f144';
+            font-family: 'Font Awesome 6 Free';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: white;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .video-thumbnail:hover::after {
+            opacity: 1;
+        }
+        
+        /* Contact form */
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .contact-info i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Frances Mack</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container text-center">
+            <h1>Frances Mack</h1>
+            <p class="lead">Scientific & Environmental Journalist</p>
+            <div class="mt-4">
+                <a href="#portfolio" class="btn btn-primary me-2">View My Work</a>
+                <a href="#contact" class="btn btn-outline-light">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <img src=“changwu.wang.jpg” alt="Frances Mack" class="img-fluid bio-img">
+                </div>
+                <div class="col-lg-7">
+                    <h2 class="section-title">About Me</h2>
+                    <p>Hello, I'm Frances Mack, a freelance journalist specializing in scientific and environmental reporting. Currently pursuing my graduate studies at Northwestern University, I am passionate about translating complex scientific concepts into compelling narratives that engage and inform the public.</p>
+                    <p>With expertise in both written and visual storytelling, I strive to shed light on pressing environmental issues and scientific breakthroughs that shape our world. My work spans across various media formats including longform articles, investigative reports, photo essays, and documentary videos.</p>
+                    <p>When I'm not in the field reporting or conducting interviews, you can find me exploring nature trails, experimenting with sustainable living practices, or mentoring aspiring science communicators.</p>
+                    <div class="mt-4 social-links">
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="py-5 bg-light" id="portfolio">
+        <div class="container">
+            <h2 class="section-title text-center">My Portfolio</h2>
+            <div class="portfolio-filter text-center">
+                <button class="btn active" data-filter="all">All</button>
+                <button class="btn" data-filter="writing">Writing</button>
+                <button class="btn" data-filter="photography">Photography</button>
+                <button class="btn" data-filter="video">Video</button>
+            </div>
+            
+            <div class="row portfolio-items">
+                <!-- Writing Sample 1 -->
+                <div class="col-md-6 col-lg-4 mb-4 portfolio-item writing">
+                    <div class="card h-100">
+                        <img src="/api/placeholder/600/400" class="card-img-top" alt="Article thumbnail">
+                        <div class="card-body">
+                            <p class="card-category">Climate Research</p>
+                            <h5 class="card-title">The Hidden Impact of Arctic Permafrost Thaw</h5>
+                            <p class="card-text">An in-depth investigation into how permafrost thaw is releasing ancient carbon and accelerating climate change.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Writing Sample 2 -->
+                <div class="col-md-6 col-lg-4 mb-4 portfolio-item writing">
+                    <div class="card h-100">
+                        <img src="/api/placeholder/600/400" class="card-img-top" alt="Article thumbnail">
+                        <div class="card-body">
+                            <p class="card-category">Marine Biology</p>
+                            <h5 class="card-title">Deep Sea Mysteries: New Species Discovery</h5>
+                            <p class="card-text">Exploring recent discoveries of previously unknown marine species and their importance to ocean ecosystems.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Photography Sample 1 -->
+                <div class="col-md-6 col-lg-4 mb-4 portfolio-item photography">
+                    <div class="card h-100">
+                        <img src="/api/placeholder/600/400" class="card-img-top" alt="Photography sample">
+                        <div class="card-body">
+                            <p class="card-category">Photo Essay</p>
+                            <h5 class="card-title">The Last Ice: Documenting Glacier Retreat</h5>
+                            <p class="card-text">A visual journey documenting the rapid retreat of glaciers across three continents over the past decade.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Gallery</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Photography Sample 2 -->
+                <div class="col-md-6 col-lg-4 mb-4 portfolio-item photography">
+                    <div class="card h-100">
+                        <img src="/api/placeholder/600/400" class="card-img-top" alt="Photography sample">
+                        <div class="card-body">
+                            <p class="card-category">Conservation</p>
+                            <h5 class="card-title">Guardians of the Forest: Indigenous Conservation</h5>
+                            <p class="card-text">Portraits and landscapes showcasing indigenous communities at the forefront of rainforest conservation.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Gallery</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Sample 1 -->
+                <div class="col-md-6 col-lg-4 mb-4 portfolio-item video">
+                    <div class="card h-100">
+                        <div class="video-thumbnail">
+                            <img src="/api/placeholder/600/400" class="card-img-top" alt="Video thumbnail">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-category">Documentary</p>
+                            <h5 class="card-title">Plastic Planet: Tracking Ocean Pollution</h5>
+                            <p class="card-text">A mini-documentary following scientists as they track plastic pollution from source to sea.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Sample 2 -->
+                <div class="col-md-6 col-lg-4 mb-4 portfolio-item video">
+                    <div class="card h-100">
+                        <div class="video-thumbnail">
+                            <img src="/api/placeholder/600/400" class="card-img-top" alt="Video thumbnail">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-category">Science Communication</p>
+                            <h5 class="card-title">CRISPR Explained: The Future of Genetic Engineering</h5>
+                            <p class="card-text">An animated explainer simplifying the revolutionary CRISPR gene-editing technology for general audiences.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5" id="contact">
+        <div class="container">
+            <h2 class="section-title text-center">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Contact Information</h4>
+                        <p><i class="fas fa-envelope"></i> frances.mack@example.com</p>
+                        <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Northwestern University, Evanston, IL</p>
+                        <div class="mt-4">
+                            <p>Follow me on social media:</p>
+                            <div class="social-links">
+                                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Frances Mack</h4>
+                    <p>Scientific & Environmental Journalist</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2025 Frances Mack. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Portfolio filtering
+            const filterButtons = document.querySelectorAll('.portfolio-filter .btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter items
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close navbar on mobile
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarCollapse.classList.contains('show')) {
+                            navbarCollapse.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Form submission (demonstration only)
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! This is a demonstration form. In a real website, this would send your message to Frances Mack.');
+                    contactForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
